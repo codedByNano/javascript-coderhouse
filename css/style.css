@@ -1,0 +1,12 @@
+body {
+  min-height: 100dvh;
+}
+
+h1 {
+  padding: 10px 0;
+  background-color: violet;
+}
+
+p {
+  margin: 3px;
+}
