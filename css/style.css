@@ -1,5 +1,19 @@
+/* Haciendo el navbar */
+#navbar {
+  display: none;
+}
+
+#openMenu {
+  display: block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 body {
   min-height: 100dvh;
+  margin: 0;
+  font-family: Arial, sans-serif; /* Hay que elegir otra font algo más custom? */
 }
 
 h1 {
@@ -8,5 +22,6 @@ h1 {
 }
 
 p {
-  margin: 3px;
+  margin: 10px;
 }
+

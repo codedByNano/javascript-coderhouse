@@ -11,6 +11,18 @@ if (user != "") {
   saludo();
 }
 
+//HEADER Y NAVBAR
+const botonMenu = document.getElementById("openMenu");
+const navbar = document.getElementById("navbar");
+
+botonMenu.addEventListener("click", () => {
+  if (navbar.style.display === "none" || navbar.style.display === "") {
+    navbar.style.display = "block";
+  } else {
+    navbar.style.display = "none";
+  }
+});
+
 //El chiste del adivina palabra se queda por ahora, me hizo gracia
 function adivinaPalabra() {
   let palabraMagica = "Dados";
