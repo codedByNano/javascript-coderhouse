@@ -1,6 +1,6 @@
 body {
   min-height: 100dvh;
-  margin: 0;
+  padding: 1vw;
   font-family: Arial, sans-serif; /* Hay que elegir otra font algo más custom? */
 }
 
@@ -15,12 +15,28 @@ header {
   width: auto;
 }
 
-.cont1 {
-  margin: 10px;
-  padding: 10px;
-  background-color: violet;
+.pirata-one-regular {
+  font-family: "Pirata One", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 
-p {
-  margin: 10px;
+.cont1 {
+  padding: 10px;
+  background-color: moccasin;
+}
+
+.tittle {
+  text-decoration: underline;
+}
+
+.botonGral {
+  margin: 1vh;
+  border: none;
+  background-color: moccasin;
+  font-weight: bold;
+}
+
+.botonGral:hover {
+  background-color: mistyrose;
 }

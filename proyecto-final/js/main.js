@@ -30,16 +30,26 @@ function adivinaPalabra() {
 }
 
 //Armando el simulador de dados
+let = resultadosTiradas = []; //para guardar el historial? Vamos viendo
 
-const fuerza = document.getElementById("strength");
-const destreza = document.getElementById("dexterity");
-const constitucion = document.getElementById("constitution");
-const inteligencia = document.getElementById("intelligence");
-const sabiduria = document.getElementById("wisdom");
-const carisma = document.getElementById("charisma");
+//Contenido dinámico, seleccionador del modificador
+let = modificadores = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-let = resultadosTiradas = [];
+const select = document.querySelector("#modificadores");
 
+modificadores.forEach((modificador) => {
+  let modif = document.createElement("option");
+  modif.value = modificador;
+  modif.innerText = modificador;
+  select.append(modif);
+});
+
+select.addEventListener("change", () => {
+  let option = select.options[select.selectedIndex].value;
+  console.log(modif);
+});
+
+//funciones
 function lanzadados() {
   let elegirDado = prompt(
     "Elige el tipo de dado que quieres tirar:\n" +
@@ -51,7 +61,6 @@ function lanzadados() {
       "6) Dado de 20 caras\n" +
       "7) Dado de 100 caras"
   );
-  console.log(elegirDado);
 
   let resultadoTirada;
 
