@@ -30,10 +30,10 @@ function adivinaPalabra() {
 }
 
 //Armando el simulador de dados
-let = resultadosTiradas = []; //para guardar el historial? Vamos viendo
+let resultadosTiradas = []; //para guardar el historial? Vamos viendo
 
 //Contenido dinámico, seleccionador del modificador
-let = modificadores = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let modificadores = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const select = document.querySelector("#modificadores");
 
@@ -45,7 +45,7 @@ modificadores.forEach((modificador) => {
 });
 
 select.addEventListener("change", () => {
-  let option = select.options[select.selectedIndex].value;
+  let modif = select.options[select.selectedIndex].value;
   console.log(modif);
 });
 
