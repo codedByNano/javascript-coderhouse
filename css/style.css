@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Pirata+One&display=swap");
 
 body {
   min-height: 100dvh;
@@ -59,13 +59,16 @@ header {
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  align-items: center;  
+  align-items: center;
   justify-content: space-between;
 }
-
 
 img {
   width: 150px;
   height: 150px;
   object-fit: cover;
+}
+
+.fifty {
+  width: 50%;
 }

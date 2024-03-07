@@ -49,28 +49,30 @@
         <h2 class="tittle">¡Bienvenido Tabernario!</h2>
     </div>
     <main>
-        <h3>Personalizá tu tirada</h3>
-        <div class="divModif">
-            <p>Elegí un modificador</p>
-            <select name="modificadores" id="modificadores">
-                <option value="Default"></option>
-            </select>
+        <div class="fifty">
+            <h3>Personalizá tu tirada</h3>
+            <div class="divModif">
+                <p>Elegí un modificador</p>
+                <select name="modificadores" id="modificadores">
+                    <option value="Default"></option>
+                </select>
+            </div>
+            <div class="divDados">
+                <p>Elegí tu dado</p>
+                <button class="botonGral" id="4sides">4 CARAS</button>
+                <button class="botonGral" id="6sides">6 CARAS</button>
+                <button class="botonGral" id="8sides">8 CARAS</button>
+                <button class="botonGral" id="10sides">10 CARAS</button>
+                <button class="botonGral" id="12sides">12 CARAS</button>
+                <button class="botonGral" id="20sides">20 CARAS</button>
+                <button class="botonGral" id="100sides">100 CARAS</button>
+            </div>
+            <div>
+                <p>Resultado</p>
+                <input type="text">
+            </div>
         </div>
-        <div class="divDados">
-            <p>Elegí tu dado</p>
-            <button class="botonGral">4 CARAS</button>
-            <button class="botonGral">6 CARAS</button>
-            <button class="botonGral">8 CARAS</button>
-            <button class="botonGral">10 CARAS</button>
-            <button class="botonGral">12 CARAS</button>
-            <button class="botonGral">20 CARAS</button>
-            <button class="botonGral">100 CARAS</button>
-        </div>
-
-        <button class="botonGral simDados" id="simDados">Inicia el simulador de dados</button>
-
-        <div>
-            <p>Resultado</p>
+        <div class="fifty">
             <input type="text">
         </div>
         <!-- Acá los scripts de JS -->
