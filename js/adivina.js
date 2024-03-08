@@ -54,7 +54,6 @@ guessBtn.addEventListener("click", () => {
           confirmButtonText: "Que mal :(",
           confirmButtonColor: "#FF0000",
         });
-        alert(`Te quedaste sin intentos. La palabra era ${magicWord}`);
       }
     }
   }
