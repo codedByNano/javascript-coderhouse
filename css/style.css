@@ -49,7 +49,7 @@ p {
 }
 
 .botonGral:hover {
-  background-color: mistyrose;
+  background-color: #fce6bf;
 }
 
 .container {
@@ -110,5 +110,16 @@ img {
 }
 
 .guessBtn:hover {
+  background-color: #fce6bf;
+}
+
+.hint {
+  margin: 5%;
+  max-width: 90%;
+  overflow-wrap: break-word;
+  font-size: 3vh;
+  padding: 0.5vh;
   background-color: mistyrose;
+  border: 2px solid #000;
+  /* Hay que buscar una buena font para acá */
 }

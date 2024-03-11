@@ -7,23 +7,24 @@ remainingAttempts.innerText = attemps;
 const hintBox = document.getElementById("hintBox");
 const guessInput = document.getElementById("guessInput");
 const guessBtn = document.getElementById("guessBtn");
-let magicWord = "Dados";
+let magicWord = "Espada";
 console.log(magicWord);
 
 function newHint(attempsLeft) {
   let hint = "";
   switch (attempsLeft) {
     case 4:
-      hint = "Es una palabra de 5 letras";
+      hint = "La tematica de hoy es 'Medieval'";
       break;
     case 3:
-      hint = "La palabra está en plural";
+      hint = `Son ${magicWord.length} letras`;
       break;
     case 2:
-      hint = "¿Ya te dije que lo podes encontrar en este mismo sitio web?";
+      hint = "Es tan común que fue usado desde Japón hasta Europa";
       break;
     case 1:
-      hint = "Ultima pista, tiene muchas caras";
+      hint =
+        "Usada en la fantasía para que el caballero logre vencer a la bestia temible";
       break;
   }
   hintBox.innerHTML = `<p class="hint">${hint}</p>`;
