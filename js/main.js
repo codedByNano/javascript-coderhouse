@@ -99,18 +99,18 @@ delBtn.addEventListener("click", () => {
 if (!localStorage.getItem("popupShown")) {
   setTimeout(() => {
     Swal.fire({
-      title: "¿Ya conoces nuestra tienda?",
+      title: "¿TODAVÍA NO JUGASTE A HERO QUEST?",
       showCancelButton: true,
-      confirmButtonText: "¡Visitala!",
+      confirmButtonText: "¡Jugalo Ahora!",
       cancelButtonText: "Ahora no",
       confirmButtonColor: "green",
       cancelButtonColor: "red",
       icon: "question",
     }).then((result) => {
       if (result.isConfirmed) {
-        window.location.href = "html/tienda.html";
+        window.location.href = "html/hero-quest.html";
       }
     });
     localStorage.setItem("popupShown", true);
-  }, 10000);
+  }, 9000);
 }
