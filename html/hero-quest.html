@@ -55,16 +55,34 @@
                 <button class="gameBtn" id="btnRight">Derecha</button>
                 <button class="gameBtn" id="btnDown">Abajo</button>
             </div>
-            <div class="hpBox">
-                <input type="text" id="hpBar" class="hpBar" readonly>
+            <div class="statBox">
+                <div class="miniBox">
+                    <label for="hpBar">Vida</label>
+                    <input type="text" id="hpBar" class="hpBar" readonly>
+                </div>
+                <div class="miniBox">
+                    <label for="hpBar">Ataque</label>
+                    <input type="text" id="atkBar" class="atkBar" readonly>
+                </div>
+                <div class="miniBox">
+                    <label for="hpBar">Defensa</label>
+                    <input type="text" id="defBar" class="defBar" readonly>
+                </div>
             </div>
-            <div class="gameInfo">
-                <div class="inventory" id="inventory">
-                    <h2 class="invTitle">Inventario</h2>
-                    <div class="itemBtnBox">
+            <div class="inventory" id="inventory">
+                <h2 class="invTitle">Inventario</h2>
+                <div class="itemBtnBox">
+                    <div class="miniBox">
                         <button class="gameBtn" id="whetstone">Afilador</button>
+                        <p id="totalWhetstone"></p>
+                    </div>
+                    <div class="miniBox">
                         <button class="gameBtn" id="armor">Armadura</button>
+                        <p id="totalArmor"></p>
+                    </div>
+                    <div class="miniBox">
                         <button class="gameBtn" id="potion">Pocion</button>
+                        <p id="totalPotion"></p>
                     </div>
                 </div>
             </div>

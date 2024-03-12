@@ -1,6 +1,6 @@
 const hero = {
   hp: 100,
-  str: 10,
+  atk: 10,
   def: 5,
   inventory: {
     whetstone: 0,
@@ -9,23 +9,50 @@ const hero = {
   },
 };
 
-function hudHP() {
-  const totalHP = document.getElementById("hpBar");
-  totalHP.value = hero.hp;
-}
-hudHP();
+const history = document.getElementById("history");
 
-function scrollBotom() {
-  const scrollHistory = document.getElementById("history");
-  scrollHistory.scrollTop = scrollHistory.scrollHeight;
+function hudUpdate() {
+  const hpBox = document.getElementById("hpBar");
+  hpBox.value = hero.hp;
+
+  const atkBox = document.getElementById("atkBar");
+  atkBox.value = hero.atk;
+
+  const defBox = document.getElementById("defBar");
+  defBox.value = hero.def;
+
+  const totalWhetstone = document.getElementById("totalWhetstone");
+  totalWhetstone.innerText = `Total: ${hero.inventory.whetstone}`;
+
+  const totalArmor = document.getElementById("totalArmor");
+  totalArmor.innerText = `Total: ${hero.inventory.armor}`;
+
+  const totalPotion = document.getElementById("totalPotion");
+  totalPotion.innerText = `Total: ${hero.inventory.potion}`;
+}
+hudUpdate();
+
+function checkStatus() {
+  if (hero.hp <= 0) {
+    history.innerHTML = `
+    <p class="youDied">YOU DIED</p>`;
+
+    const buttons = document.querySelectorAll(".gameBtn");
+    buttons.forEach((button) => {
+      button.disabled = true;
+    });
+  }
 }
 
 function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function scrollBotom() {
+  history.scrollTop = history.scrollHeight;
+}
+
 function showMessage(message) {
-  const history = document.getElementById("history");
   history.innerHTML += `<p class="gameMsg">${message}</p>`;
 }
 
@@ -33,7 +60,7 @@ function fightEnemy() {
   const evilAtk = randomNumber(5, 15);
   const evilDef = randomNumber(3, 10);
 
-  if (hero.str > evilDef) {
+  if (hero.atk > evilDef) {
     let hpLost = randomNumber(4, 10);
     hero.hp -= hpLost;
     showMessage(
@@ -111,34 +138,35 @@ function moveHero() {
       showMessage("Esta vez no encontraste nada.");
       break;
   }
+  checkStatus();
 }
 
 btnUp.addEventListener("click", () => {
   moveText("up");
   moveHero();
-  hudHP();
-  scrollBotom()
+  hudUpdate();
+  scrollBotom();
 });
 
 btnLeft.addEventListener("click", () => {
   moveText("left");
   moveHero();
-  hudHP();
-  scrollBotom()
+  hudUpdate();
+  scrollBotom();
 });
 
 btnRight.addEventListener("click", () => {
   moveText("right");
   moveHero();
-  hudHP();
-  scrollBotom()
+  hudUpdate();
+  scrollBotom();
 });
 
 btnDown.addEventListener("click", () => {
   moveText("down");
   moveHero();
-  hudHP();
-  scrollBotom()
+  hudUpdate();
+  scrollBotom();
 });
 
 //zona de objetos del inventario
@@ -149,10 +177,13 @@ const potionBtn = document.getElementById("potion");
 whetstoneBtn.addEventListener("click", () => {
   if (hero.inventory.whetstone > 0) {
     hero.inventory.whetstone--;
-    hero.str += 2;
+    hero.atk += 2;
     showMessage("¡Usaste el afilador! Tu fuerza aumentó en 2");
+    scrollBotom();
+    hudUpdate();
   } else {
     showMessage("No te quedan afiladores en tu inventario");
+    scrollBotom();
   }
 });
 
@@ -161,8 +192,11 @@ armorBtn.addEventListener("click", () => {
     hero.inventory.armor--;
     hero.def += 1;
     showMessage("¡Te equipaste la armadura! Tu defensa aumentó en 1");
+    scrollBotom();
+    hudUpdate();
   } else {
     showMessage("No te quedan partes de armadura en tu inventario");
+    scrollBotom();
   }
 });
 
@@ -170,9 +204,11 @@ potionBtn.addEventListener("click", () => {
   if (hero.inventory.potion > 0) {
     hero.inventory.potion--;
     hero.hp += 5;
-    showMessage("¡Usaste un poción! Tu vida aumentó en 5");
-    hudHP();
+    showMessage("¡Usaste una poción! Tu vida aumentó en 5");
+    scrollBotom();
+    hudUpdate();
   } else {
     showMessage("No te quedan pociones en tu inventario");
+    scrollBotom();
   }
 });

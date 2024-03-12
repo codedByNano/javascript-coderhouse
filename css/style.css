@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Pirata+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap");
 
 body {
   min-height: 100dvh;
   padding: 1vw;
-  font-family: Arial, sans-serif; /* Hay que elegir otra font algo más custom? */
 }
 
 header {
   height: 16vh;
 }
 
-.flex {
+.indexMain {
   display: flex;
 }
 
@@ -135,18 +135,25 @@ img {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 5%;
-  width: 45%;
+  width: 40%;
 }
 
 .gameBtn {
   margin: 2%;
 }
 
-.hpBox {
-  width: 10%;
+.statBox {
+  width: 23%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.miniBox {
+  display: grid;
+  grid-template-columns: 1, 1fr;
+  padding: 10px;
+  justify-items: center;
 }
 
 .hpBar {
@@ -162,8 +169,34 @@ img {
   margin: auto;
 }
 
-.gameInfo {
-  width: 45%;
+.atkBar {
+  background-color: orange;
+  color: white;
+  font-size: 3vh;
+  font-weight: bold;
+  border-radius: 10px;
+  height: 7vh;
+  width: 5vw;
+  border: 2.5px solid black;
+  text-align: center;
+  margin: auto;
+}
+
+.defBar {
+  background-color: grey;
+  color: white;
+  font-size: 3vh;
+  font-weight: bold;
+  border-radius: 10px;
+  height: 7vh;
+  width: 5vw;
+  border: 2.5px solid black;
+  text-align: center;
+  margin: auto;
+}
+
+.inventory {
+  width: 35%;
 }
 
 .invTitle {
@@ -176,9 +209,18 @@ img {
   scroll-behavior: smooth;
   overflow-y: scroll;
   height: 65vh;
+  border: 2px solid gray;
 }
 
 .itemBtnBox {
   display: flex;
   justify-content: space-between;
+}
+
+.youDied {
+  color: red;
+  font-size: 3rem;
+  font-family: "Old Standard TT", serif;
+  font-weight: 400;
+  font-style: normal;
 }
