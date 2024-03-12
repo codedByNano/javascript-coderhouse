@@ -15,6 +15,11 @@ function hudHP() {
 }
 hudHP();
 
+function scrollBotom() {
+  const scrollHistory = document.getElementById("history");
+  scrollHistory.scrollTop = scrollHistory.scrollHeight;
+}
+
 function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -57,7 +62,9 @@ function findObject() {
       "¡Encontraste un objeto! Guardaste una parte de armadura en el inventario"
     );
   } else if (newObj == "potion") {
-    showMessage ("¡Encontraste un objeto! Guardaste una pocion en el inventario")
+    showMessage(
+      "¡Encontraste un objeto! Guardaste una pocion en el inventario"
+    );
   }
 }
 
@@ -110,24 +117,28 @@ btnUp.addEventListener("click", () => {
   moveText("up");
   moveHero();
   hudHP();
+  scrollBotom()
 });
 
 btnLeft.addEventListener("click", () => {
   moveText("left");
   moveHero();
   hudHP();
+  scrollBotom()
 });
 
 btnRight.addEventListener("click", () => {
   moveText("right");
   moveHero();
   hudHP();
+  scrollBotom()
 });
 
 btnDown.addEventListener("click", () => {
   moveText("down");
   moveHero();
   hudHP();
+  scrollBotom()
 });
 
 //zona de objetos del inventario

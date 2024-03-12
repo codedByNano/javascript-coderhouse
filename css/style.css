@@ -172,7 +172,7 @@ img {
   align-items: center;
 }
 
-.diceHistory {
+.history {
   scroll-behavior: smooth;
   overflow-y: scroll;
   height: 65vh;
