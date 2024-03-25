@@ -1,0 +1,10 @@
+{
+  "hp": 100,
+  "atk": 10,
+  "def": 5,
+  "inventory": {
+    "whetstone": 0,
+    "armor": 0,
+    "potion": 0
+  }
+}

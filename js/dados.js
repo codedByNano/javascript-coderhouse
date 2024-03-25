@@ -112,5 +112,5 @@ if (!localStorage.getItem("popupShown")) {
       }
     });
     localStorage.setItem("popupShown", true);
-  }, 9000);
+  },9000);
 }

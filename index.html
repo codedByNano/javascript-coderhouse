@@ -4,24 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="media/taberna-icon.ico">
+    <link rel="icon" href="../media/taberna-icon.ico">
 
     <title>La taberna del Nano</title>
-    <!-- Acá los links CSS -->
+    <!-- Acá los scripts del CSS -->
     <link href="
         https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.min.css
         " rel="stylesheet"><!-- sweetalert2 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- bootstrap -->
-    <link rel="stylesheet" href="css/style.css"> <!-- custom -->
+    <link rel="stylesheet" href="../css/style.css"> <!-- custom -->
 </head>
 
 <body>
     <header>
         <nav class="navbar bg-body-tertiary fixed-top">
             <div class="container-fluid">
-                <a href="index.html"><img class="logo" src="media/logo.jpg" alt="Logo de la taberna del Nano"></a>
+                <a href="index.html"><img class="logo" src="../media/logo.jpg" alt="Logo de la taberna del Nano"></a>
                 <h1 class="pirata-one-regular">La Taberna del Nano</h1>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -35,13 +35,13 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                                <a class="nav-link active" href="index.html">Hero Quest</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="html/adivinador.html">Adivina la palabra</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="html/hero-quest.html">Hero Quest</a>
+                                <a class="nav-link" aria-current="page" href="html/dados.html">Simulador de Dados</a>
                             </li>
                         </ul>
                     </div>
@@ -49,63 +49,57 @@
             </div>
         </nav>
     </header>
-    <div class="cont1">
-        <h2 class="tittle">BIENVENIDO AL MEJOR SIMULADOR DE DADOS DE LA HISTORIA</h2>
-    </div>
-    <main class="indexMain">
-        <div class="popup"></div>
-        <div class="fifty">
-            <h3>Personalizá tu tirada</h3>
-            <div class="divModif">
-                <label for="modificadores">Elegí un modificador</label>
-                <select name="modificadores" id="modificadores">
-                    <option value="0">0</option>
-                    <option value="-5">-5</option>
-                    <option value="-4">-4</option>
-                    <option value="-3">-3</option>
-                    <option value="-2">-2</option>
-                    <option value="-1">-1</option>
-                    <option value="1">+1</option>
-                    <option value="2">+2</option>
-                    <option value="3">+3</option>
-                    <option value="4">+4</option>
-                    <option value="5">+5</option>
-                    <option value="6">+6</option>
-                    <option value="7">+7</option>
-                    <option value="8">+8</option>
-                    <option value="9">+9</option>
-                    <option value="10">+10</option>
-                </select>
+    <main>
+        <div id="history" class="history"></div>
+        <div class="hud">
+            <div class="btnBox">
+                <button class="gameBtn" id="btnUp">Arriba</button>
+                <button class="gameBtn" id="btnLeft">Izquierda</button>
+                <button class="gameBtn" id="btnRight">Derecha</button>
+                <button class="gameBtn" id="btnDown">Abajo</button>
             </div>
-            <div class="divDice">
-                <p>Elegí tu dado</p>
-                <button class="botonGral" id="4sides">4 CARAS</button>
-                <button class="botonGral" id="6sides">6 CARAS</button>
-                <button class="botonGral" id="8sides">8 CARAS</button>
-                <button class="botonGral" id="10sides">10 CARAS</button>
-                <button class="botonGral" id="12sides">12 CARAS</button>
-                <button class="botonGral" id="20sides">20 CARAS</button>
-                <button class="botonGral" id="100sides">100 CARAS</button>
+            <div class="statBox">
+                <div class="miniBox">
+                    <label for="hpBar">Vida</label>
+                    <input type="text" id="hpBar" class="hpBar" readonly>
+                </div>
+                <div class="miniBox">
+                    <label for="hpBar">Ataque</label>
+                    <input type="text" id="atkBar" class="atkBar" readonly>
+                </div>
+                <div class="miniBox">
+                    <label for="hpBar">Defensa</label>
+                    <input type="text" id="defBar" class="defBar" readonly>
+                </div>
             </div>
-            <div class="divResult">
-                <p>Resultado</p>
-                <input type="text" id="result" placeholder="Elija su dado" readonly>
+            <div class="inventory" id="inventory">
+                <h2 class="invTitle">Inventario</h2>
+                <div class="itemBtnBox">
+                    <div class="miniBox">
+                        <button class="gameBtn" id="whetstone">Afilador</button>
+                        <p id="totalWhetstone"></p>
+                    </div>
+                    <div class="miniBox">
+                        <button class="gameBtn" id="armor">Armadura</button>
+                        <p id="totalArmor"></p>
+                    </div>
+                    <div class="miniBox">
+                        <button class="gameBtn" id="potion">Pocion</button>
+                        <p id="totalPotion"></p>
+                    </div>
+                </div>
             </div>
+            <br>
+            <button class="resetGame" id="resetGame">Reiniciar</button>
         </div>
-        <div class="fifty">
-            <h3>Historial</h3>
-            <textarea id="history" class="diceHistory"></textarea>
-            <button class="botonGral" id="saveHist">Guardar Historial</button>
-            <button class="botonGral" id="delHist">Eliminar Historial</button>
-        </div>
-        <!-- Acá los scripts de JS -->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.all.min.js">
-        </script> <!-- sweetalert2 -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script> <!-- bootstrap -->
-        <script src="js/main.js"></script> <!-- custom -->
     </main>
+    <!-- Acá los scripts del JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.all.min.js">
+    </script> <!-- sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script> <!-- bootstrap -->
+    <script src="../js/hero-quest.js"></script> <!-- custom -->
 </body>
 
 </html>

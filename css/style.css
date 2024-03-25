@@ -129,6 +129,7 @@ img {
 
 .hud {
   display: flex;
+  height: auto;
 }
 
 .btnBox {
@@ -223,4 +224,13 @@ img {
   font-family: "Old Standard TT", serif;
   font-weight: 400;
   font-style: normal;
+}
+
+.resetGame {
+  align-self: flex-end;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-top: 10px;
+  height: 2.5vh;
+  font-size: 1.2vh;
 }

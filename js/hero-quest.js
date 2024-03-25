@@ -1,13 +1,26 @@
-const hero = {
-  hp: 100,
-  atk: 10,
-  def: 5,
-  inventory: {
-    whetstone: 0,
-    armor: 0,
-    potion: 0,
-  },
-};
+let hero;
+
+async function loadHero() {
+  try {
+    let savedHero = localStorage.getItem("gameStatus");
+    if (savedHero) {
+      hero = JSON.parse(savedHero);
+      console.log("hero loaded from local storage:", hero);
+    } else {
+      const res = await fetch("../json/heroBasic.json");
+      if (!res.ok) {
+        throw new Error("the task failed");
+      }
+      const data = await res.json();
+      hero = data;
+      console.log("Hero loaded from heroBasic.json:", hero);
+    }
+    hudUpdate();
+  } catch (error) {
+    console.error("Error loading hero:", error.message);
+  }
+}
+loadHero();
 
 const history = document.getElementById("history");
 
@@ -29,8 +42,9 @@ function hudUpdate() {
 
   const totalPotion = document.getElementById("totalPotion");
   totalPotion.innerText = `Total: ${hero.inventory.potion}`;
+
+  localStorage.setItem("gameStatus", JSON.stringify(hero));
 }
-hudUpdate();
 
 function checkStatus() {
   if (hero.hp <= 0) {
@@ -57,11 +71,11 @@ function showMessage(message) {
 }
 
 function fightEnemy() {
-  const evilAtk = randomNumber(5, 15);
+  const evilAtk = randomNumber(7, 17);
   const evilDef = randomNumber(3, 10);
 
   if (hero.atk > evilDef) {
-    let hpLost = randomNumber(4, 10);
+    let hpLost = randomNumber(2, 6);
     hero.hp -= hpLost;
     showMessage(
       `¡Encontraste un enemigo! Sin embargo tu maestría con la espada fue suficiente para derrotarlo. <br> Venciste ¿Pero a que costo? <br> Perdiste ${hpLost} de vida`
@@ -101,7 +115,7 @@ function randomEvent() {
   return events[eventId];
 }
 
-//movimiento
+//botones de movimiento
 const btnUp = document.getElementById("btnUp");
 const btnLeft = document.getElementById("btnLeft");
 const btnRight = document.getElementById("btnRight");
@@ -141,32 +155,30 @@ function moveHero() {
   checkStatus();
 }
 
-btnUp.addEventListener("click", () => {
-  moveText("up");
+function btnBtn() {
   moveHero();
   hudUpdate();
   scrollBotom();
+}
+
+btnUp.addEventListener("click", () => {
+  moveText("up");
+  btnBtn();
 });
 
 btnLeft.addEventListener("click", () => {
   moveText("left");
-  moveHero();
-  hudUpdate();
-  scrollBotom();
+  btnBtn();
 });
 
 btnRight.addEventListener("click", () => {
   moveText("right");
-  moveHero();
-  hudUpdate();
-  scrollBotom();
+  btnBtn();
 });
 
 btnDown.addEventListener("click", () => {
   moveText("down");
-  moveHero();
-  hudUpdate();
-  scrollBotom();
+  btnBtn();
 });
 
 //zona de objetos del inventario
@@ -211,4 +223,12 @@ potionBtn.addEventListener("click", () => {
     showMessage("No te quedan pociones en tu inventario");
     scrollBotom();
   }
+});
+
+//boton de reinicio
+const resetGame = document.getElementById("resetGame");
+
+resetGame.addEventListener("click", () => {
+  localStorage.removeItem("gameStatus");
+  location.reload();
 });

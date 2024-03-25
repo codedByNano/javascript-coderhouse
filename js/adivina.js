@@ -7,24 +7,24 @@ remainingAttempts.innerText = attemps;
 const hintBox = document.getElementById("hintBox");
 const guessInput = document.getElementById("guessInput");
 const guessBtn = document.getElementById("guessBtn");
-let magicWord = "Espada";
+let magicWord = "Fireball";
 console.log(magicWord);
 
 function newHint(attempsLeft) {
   let hint = "";
   switch (attempsLeft) {
     case 4:
-      hint = "La tematica de hoy es 'Medieval'";
+      hint = `La palabra está en ingles y tiene ${magicWord.length} letras`;
       break;
     case 3:
-      hint = `Son ${magicWord.length} letras`;
+      hint = `La palabra está en ingles y tiene ${magicWord.length} letras`;
       break;
     case 2:
-      hint = "Es tan común que fue usado desde Japón hasta Europa";
+      hint = "Es lo primero que hace un mago ante cualquier situación";
       break;
     case 1:
       hint =
-        "Usada en la fantasía para que el caballero logre vencer a la bestia temible";
+        "Está relacionado con el fuego";
       break;
   }
   hintBox.innerHTML = `<p class="hint">${hint}</p>`;
