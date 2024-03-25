@@ -55,6 +55,10 @@ function checkStatus() {
     buttons.forEach((button) => {
       button.disabled = true;
     });
+    setTimeout(() => {
+      localStorage.removeItem("gameStatus");
+      location.reload();
+    }, 3000);
   }
 }
 
