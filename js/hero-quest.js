@@ -7,7 +7,7 @@ async function loadHero() {
       hero = JSON.parse(savedHero);
       console.log("hero loaded from local storage:", hero);
     } else {
-      const res = await fetch("../json/heroBasic.json");
+      const res = await fetch("json/heroBasic.json");
       if (!res.ok) {
         throw new Error("the task failed");
       }
